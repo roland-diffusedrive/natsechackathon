@@ -1,0 +1,26 @@
+# Local plans / scratch
+TEMP
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env.bak
+
+# Hydra default outputs
+outputs/
+data/
+multirun/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

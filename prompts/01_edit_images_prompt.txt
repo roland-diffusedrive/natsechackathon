@@ -1,0 +1,4 @@
+I have this image of a tank. 
+There are some infographics on the images, like different nationality flags, some emblems, watermarks, etc... in the corners, possibly in the middle. 
+Please remove them and return the clean image. 
+Make sure not to change anything else on the image

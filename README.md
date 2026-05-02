@@ -81,6 +81,34 @@ We are explicit about what *does not* run on the drone: the generative model its
 
 ---
 
+## Setup
+
+**1) Clone the repo**
+
+```bash
+gh repo clone roland-diffusedrive/natsechackathon
+cd natsechackathon
+```
+
+**2) Set your API key**
+
+```bash
+cp .env.example .env
+# open .env and paste your OPENAI_API_KEY
+```
+
+**3) Create conda environment**
+
+```bash
+conda create --name natsechackathon python=3.10 -y
+conda activate natsechackathon
+pip install pip-tools
+pip-compile requirements/requirements.in
+pip install -r requirements/requirements.txt
+```
+
+---
+
 ## Demo flow
 
 The minimum viable demo has four visible steps. We will have precomputed checkpoints ready as a fallback so we never have to live-train against the clock.

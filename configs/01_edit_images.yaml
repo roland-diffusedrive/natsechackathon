@@ -1,0 +1,33 @@
+openai_api_key_env: OPENAI_API_KEY
+model_name: gpt-image-2
+
+# Input: can be a single image file OR a folder of images.
+input_image: data/raw/images
+# Path to a .txt file containing the edit prompt
+prompt_file: prompts/01_edit_images_prompt.txt
+
+# Output settings
+output_dir: data/cleaned/images
+use_prompt_as_filename: false
+
+# Image generation parameters (set to null to use API defaults)
+# size options:
+#   null           → omit (API default)
+#   "auto"         → let GPT choose the size
+#   "original"     → match each input image's actual resolution (rounded to nearest multiple of 16)
+#   "WIDTHxHEIGHT" → fixed size, e.g. 1024x1024, 1024x1536, 1536x1024, 1504x832
+size: original
+# quality: low, medium, high, auto
+quality: high
+# output_format: png, jpeg, webp
+output_format: jpeg
+# output_compression: 0-100, only used for jpeg/webp
+output_compression: null
+# background: opaque, auto. (transparent is NOT supported by gpt-image-2; works on gpt-image-1/1.5)
+background: auto
+n: 1
+
+# Concurrency: number of image edit requests in flight at once
+max_concurrent_requests: 15
+
+
