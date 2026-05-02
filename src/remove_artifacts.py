@@ -8,10 +8,7 @@ from omegaconf import DictConfig
 from openai import AsyncOpenAI
 from tqdm.asyncio import tqdm as async_tqdm
 
-from image_edit import (
-    IMAGE_EXTENSIONS, build_edit_kwargs, collect_images,
-    format_time, get_unique_output_path, save_response, print_summary,
-)
+from image_edit import build_edit_kwargs, collect_images, format_time, save_response, print_summary
 
 
 async def _process_one(

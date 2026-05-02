@@ -6,7 +6,6 @@ import asyncio
 from pathlib import Path
 
 from omegaconf import DictConfig
-from openai import AsyncOpenAI
 from PIL import Image
 
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp"}
