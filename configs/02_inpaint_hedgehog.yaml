@@ -1,0 +1,17 @@
+# Stage 02: composite a hedgehog-camouflaged tank into clean aerial tank images.
+openai_api_key_env: OPENAI_API_KEY
+model_name: gpt-image-2
+
+input_image: data/seed/cleaned
+reference_image: data/reference/hedgehog_tank.jpg  # single reference showing the hedgehog variant
+prompt_file: prompts/02_inpaint_hedgehog_prompt.txt
+output_dir: data/generated/images
+use_prompt_as_filename: false
+
+size: original        # null | "auto" | "original" | "WIDTHxHEIGHT"
+quality: high         # low | medium | high | auto
+output_format: jpeg   # png | jpeg | webp
+output_compression: null
+background: auto
+n: 1
+max_concurrent_requests: 5
