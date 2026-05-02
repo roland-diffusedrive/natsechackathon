@@ -1,0 +1,19 @@
+# Path to YOLO data.yaml (must define the split you want to eval)
+data: data/tanks/data.yaml
+
+# Which split to evaluate: train / val / test
+split: test
+
+# Checkpoint to evaluate
+model: runs/detect/baseline-3/weights/best.pt
+
+# Confidence threshold for detection
+conf: 0.25
+
+imgsz: 640
+
+# Where to save metrics.json + annotated images
+output_dir: out/eval/baseline_test
+
+# Device: "mps" for Mac, 0 for A100, "cpu" as fallback
+device: mps
