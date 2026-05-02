@@ -53,6 +53,26 @@ pip install -r requirements/requirements.txt
 
 
 
+**4) YOLO finetuning**
+
+```bash
+# name=      run label, saved to runs/detect/<name>/
+# model=     yolo11s.pt for baseline, or a .pt path to continue from a checkpoint
+# epochs=    50 for baseline, 20 for adapted run
+# batch=     32 on A100, 8 on Mac
+# device=    0 for A100, mps for Mac
+python scripts/03_finetune.py name=baseline model=yolo11s.pt epochs=50 batch=32 device=0
+```
+
+**5) YOLO eval** (quantitative mAP + annotated images)
+
+```bash
+# model=      checkpoint to evaluate
+# split=      test (held-out) | val
+# output_dir= where to save metrics.json + annotated images
+python scripts/03_eval.py model=runs/detect/baseline/weights/best.pt split=test output_dir=out/eval/baseline_test device=0
+```
+
 ## Dataset
 
 Military vehicle detection set from Roboflow Universe:
