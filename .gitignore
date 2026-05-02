@@ -25,5 +25,5 @@ multirun/
 .idea/
 .vscode/
 
-./yolo11s.pt
+yolo11s.pt
 /runs/
