@@ -1,1 +1,6 @@
-Here is a aerial image from a UAV taking an image of the tank. The other image shows a hedgehog camouflaged tank. Please go ahead and edit the image, so the hedgehog tank is also in the image, viewed from above. Make sure it matches the camera characteristics perfectly fine.
+Image 1 is an aerial or ground photograph of a tank taken from a UAV. 
+Image 2 shows a hedgehog-camouflaged tank. 
+Edit Image 1 so that there is a hedgehog-camouflaged tank in the background, shown in Image 2.
+Make sure the hedgehog-camouflaged tank is blended in the environment. 
+Make sure the result matches the camera characteristics, lighting, and perspective of Image 1 exactly.
+Make very sure the inpainted image fits in perfectly with the original image resolution, visuals, etc.

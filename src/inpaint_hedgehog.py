@@ -8,7 +8,17 @@ from omegaconf import DictConfig
 from openai import AsyncOpenAI
 from tqdm.asyncio import tqdm as async_tqdm
 
-from image_edit import build_edit_kwargs, collect_images, format_time, save_response, print_summary
+from image_edit import IMAGE_EXTENSIONS, build_edit_kwargs, collect_images, format_time, save_response, print_summary
+
+
+def _collect_references(reference_cfg: str) -> list[Path]:
+    """Return reference image list from a single file or a folder (sorted)."""
+    ref_path = Path(reference_cfg)
+    if not ref_path.exists():
+        return []
+    if ref_path.is_file():
+        return [ref_path]
+    return sorted(p for p in ref_path.iterdir() if p.is_file() and p.suffix.lower() in IMAGE_EXTENSIONS)
 
 
 async def _process_one(
@@ -43,9 +53,9 @@ async def run_async(cfg: DictConfig) -> None:
     if not input_path.exists():
         print(f"Error: Input path not found: {input_path}"); return
 
-    reference_path = Path(cfg.reference_image)
-    if not reference_path.exists():
-        print(f"Error: Reference image not found: {reference_path}"); return
+    reference_files = _collect_references(cfg.reference_image)
+    if not reference_files:
+        print(f"Error: No reference images found at: {cfg.reference_image}"); return
 
     prompt_path = Path(cfg.prompt_file)
     if not prompt_path.exists():
@@ -64,15 +74,20 @@ async def run_async(cfg: DictConfig) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     max_concurrent = int(cfg.get("max_concurrent_requests", 5))
 
+    ref_label = cfg.reference_image if len(reference_files) == 1 else f"{cfg.reference_image}  ({len(reference_files)} refs, rotating)"
     print(f"\n  Model:     {cfg.model_name}")
     print(f"  Input:     {input_path}  ({len(image_files)} image(s))")
-    print(f"  Reference: {reference_path}")
+    print(f"  Reference: {ref_label}")
     print(f"  Output:    {output_dir.absolute()}")
     print(f"  Quality:   {cfg.get('quality', 'default')}  |  Concurrency: {max_concurrent}\n")
 
     client = AsyncOpenAI(api_key=api_key)
     semaphore = asyncio.Semaphore(max_concurrent)
-    tasks = [_process_one(client, cfg, p, reference_path, prompt, output_dir, done_folder, semaphore) for p in image_files]
+    # Rotate through reference images: image_files[i] → reference_files[i % len(reference_files)]
+    tasks = [
+        _process_one(client, cfg, img, reference_files[i % len(reference_files)], prompt, output_dir, done_folder, semaphore)
+        for i, img in enumerate(image_files)
+    ]
 
     start = time.time()
     successful = failed = 0
