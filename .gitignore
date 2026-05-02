@@ -24,3 +24,6 @@ multirun/
 .DS_Store
 .idea/
 .vscode/
+
+./yolo11s.pt
+/runs/

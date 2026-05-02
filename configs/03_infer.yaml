@@ -1,0 +1,18 @@
+# Image, folder, video, or URL to run inference on
+source: samples/normal
+
+# Weights to use — pretrained or one of our finetuned checkpoints, e.g.:
+#   runs/detect/baseline/weights/best.pt
+#   runs/detect/adapted/weights/best.pt
+model: runs/detect/baseline/weights/best.pt
+
+# Confidence threshold
+conf: 0.25
+
+imgsz: 640
+
+# Where to save annotated output images
+output_dir: out/baseline_normal
+
+# Device: "mps" for Mac, 0 for A100, "cpu" as fallback
+device: mps

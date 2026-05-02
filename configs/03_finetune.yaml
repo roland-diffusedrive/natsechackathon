@@ -1,0 +1,22 @@
+# Path to YOLO data.yaml
+data: data/tanks/data.yaml
+
+# Model to start from — "yolo11s.pt" auto-downloads official weights.
+# To continue from a previous run, set to e.g.:
+#   runs/detect/baseline/weights/best.pt
+model: yolo11s.pt
+
+# Training hyperparameters
+epochs: 50
+imgsz: 640
+batch: 16
+patience: 15
+
+# Run name — saved under runs/detect/<name>/
+name: baseline
+
+# Device: "mps" for Mac, 0 for single A100, "0,1" for multi-GPU, "cpu" as fallback
+device: mps
+
+# Dataloader workers (null = auto)
+workers: null
