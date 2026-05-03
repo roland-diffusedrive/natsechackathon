@@ -1,4 +1,4 @@
-# 60-second demo
+# 60-second demo - Hedgehog Loop
 
 ---
 
