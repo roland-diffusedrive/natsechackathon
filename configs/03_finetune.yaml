@@ -15,7 +15,7 @@ patience: 15
 # Run name — saved under runs/detect/<name>/
 name: baseline
 
-# Device: "mps" for Mac, 0 for single A100, "0,1" for multi-GPU, "cpu" as fallback
+# Device: "mps" for Mac, 0 for single GPU, "0,1" for multi-GPU, "cpu" as fallback
 device: mps
 
 # Dataloader workers (null = auto)

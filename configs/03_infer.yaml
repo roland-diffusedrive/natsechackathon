@@ -14,5 +14,5 @@ imgsz: 640
 # Where to save annotated output images
 output_dir: out/baseline_normal
 
-# Device: "mps" for Mac, 0 for A100, "cpu" as fallback
+# Device: "mps" for Mac, 0 for GPU, "cpu" as fallback
 device: mps

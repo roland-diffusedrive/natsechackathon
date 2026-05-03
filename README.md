@@ -35,8 +35,8 @@ The synthetic dataset is already committed under `data/tanks/`, so you can go st
 # name=      run label, saved to runs/detect/<name>/
 # model=     yolo11s.pt for baseline, or a .pt path to continue from a checkpoint
 # epochs=    50 for baseline, 20 for adapted run
-# batch=     32 on A100, 8 on Mac
-# device=    0 for A100, mps for Mac
+# batch=     32 on GPU, 8 on Mac
+# device=    0 for GPU, mps for Mac
 python scripts/03_finetune.py name=baseline model=yolo11s.pt epochs=50 batch=32 device=0
 ```
 
