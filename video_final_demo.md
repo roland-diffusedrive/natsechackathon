@@ -10,8 +10,7 @@
 
 ## 1. The problem
 
-![](docs/demo/01_baseline_works.jpg)
-![](docs/demo/02_baseline_fails.jpg)
+![](docs/demo/01_baseline_hero.jpg)
 
 *The adversary modifies the silhouette — cope cages, hedgehog welding — and a detector that worked yesterday goes blind. Real data takes weeks to collect. The war moves faster.*
 
@@ -35,7 +34,7 @@
 
 *The model fine-tunes overnight on the augmented set.*
 
-![](docs/demo/03_adapted_works.jpg)
+![](docs/demo/02_adapted_hero.jpg)
 
 *Detection recovers on the same case that broke it yesterday.*
 

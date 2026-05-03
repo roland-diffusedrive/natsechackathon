@@ -30,10 +30,10 @@ A minimal closed loop that adapts a YOLO11s tank detector to a new target appear
 5. **Continue fine-tuning** the prior checkpoint on the augmented set.
 6. **Detector recovers** on the same failure cases.
 
-| Baseline → regular tanks | Baseline → hedgehog tanks | Adapted → hedgehog tanks |
-| :---: | :---: | :---: |
-| ![baseline_works](docs/demo/01_baseline_works.jpg) | ![baseline_fails](docs/demo/02_baseline_fails.jpg) | ![adapted_works](docs/demo/03_adapted_works.jpg) |
-| works | fails | works again |
+| Baseline | Adapted |
+| :---: | :---: |
+| ![baseline](docs/demo/01_baseline_hero.jpg) | ![adapted](docs/demo/02_adapted_hero.jpg) |
+| catches the regular vehicle, blind to the hedgehog | catches both — only the box changes |
 
 Single class throughout: `tank`. We don't split sub-types — the operator only cares whether anything tank-shaped gets a box.
 
