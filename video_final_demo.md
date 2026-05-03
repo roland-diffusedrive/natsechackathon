@@ -12,7 +12,7 @@
 
 ![](docs/demo/01_baseline_hero.jpg)
 
-*The adversary modifies the silhouette — cope cages, hedgehog welding — and a detector that worked yesterday goes blind. Real data takes weeks to collect. The war moves faster.*
+*The adversary modifies the silhouette — cope cages, hedgehog welding — and yesterday's detector goes blind on today's targets. Real-world data takes weeks. By the time we have it, the threat has evolved again.*
 
 ---
 
@@ -20,7 +20,7 @@
 
 ![](docs/demo/04_operator.jpg)
 
-*The drone operator at the tactical edge. They see exactly what changed in the field — and they have no way to push it back into training.*
+*The drone operator at the tactical edge. They see exactly what changed — but have no way to feed it back into training before the next mission.*
 
 ---
 
@@ -28,11 +28,11 @@
 
 ![](docs/demo/05_synthetic_grid.jpg)
 
-*The operator flags the new threat. Generative AI synthesizes the missing training data from a few reference frames.*
+*The operator flags the new threat with a few screenshots. Generative AI synthesizes the missing training data.*
 
 ![](docs/demo/06_training_terminal.jpg)
 
-*The model fine-tunes overnight on the augmented set.*
+*Fine-tuning runs overnight on a single GPU. By morning, a new checkpoint.*
 
 ![](docs/demo/02_adapted_hero.jpg)
 
@@ -44,7 +44,7 @@
 
 ![](docs/demo/07_generalization.jpg)
 
-*The same loop applies to any unmanned system — air, land, sea, space — and any target whose appearance shifts on the battlefield.*
+*Tanks via UAV is just the demo. The loop is the same for any unmanned system, any target, any environment.*
 
 ---
 
