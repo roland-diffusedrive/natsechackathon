@@ -16,4 +16,4 @@ imgsz: 640
 output_dir: out/eval/baseline_test
 
 # Device: "mps" for Mac, 0 for A100, "cpu" as fallback
-device: mps
+device: 0
