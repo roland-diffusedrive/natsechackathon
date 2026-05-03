@@ -39,6 +39,10 @@
 
 *Detection recovers on the same case that broke it yesterday.*
 
+![](docs/demo/08_metrics_comparison.png)
+
+*Across the full eval set: 5× higher mAP, 4× higher recall — not a cherry-picked frame.*
+
 ![](docs/demo/07_generalization.jpg)
 
 *The same loop applies to any unmanned system — air, land, sea, space — and any target whose appearance shifts on the battlefield.*
