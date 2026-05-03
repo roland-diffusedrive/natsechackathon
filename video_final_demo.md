@@ -1,4 +1,4 @@
-# 60-second demo storyboard
+# 60-second demo
 
 ---
 
