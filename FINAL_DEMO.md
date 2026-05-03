@@ -5,7 +5,7 @@
 > Can you find the tank in the image above? I bet you can't — and neither can the model that crushed this exact mission yesterday.
 
 3rd National Security Hackathon — Problem Statement 2 (Edge Deployments and Drone Operation).
-By Roland Pinter and Domonkos Haffner — [DiffuseDrive](https://diffusedrive.com).
+By [Roland Pinter](https://www.linkedin.com/in/rolandpinter/) and [Domonkos Haffner](https://www.linkedin.com/in/domonkos-haffner-798063203/) — [DiffuseDrive](https://diffusedrive.com).
 
 ---
 
@@ -65,4 +65,4 @@ Install + run: see [README.md](README.md).
 
 ## Team
 
-**Roland Pinter** (Co-Founder and CTO) and **Domonkos Haffner** (Founding GenAI Engineer) of [DiffuseDrive](https://diffusedrive.com) — a 14-person, SF–based seed-stage defense-tech startup building self-serve, air-gapped synthetic data infrastructure, already serving US and European defense primes and Fortune 500 partners.
+**[Roland Pinter](https://www.linkedin.com/in/rolandpinter/)** (Co-Founder and CTO) and **[Domonkos Haffner](https://www.linkedin.com/in/domonkos-haffner-798063203/)** (Founding GenAI Engineer) of [DiffuseDrive](https://diffusedrive.com) — a 14-person, SF–based seed-stage defense-tech startup building self-serve, air-gapped synthetic data infrastructure, already serving US and European defense primes and Fortune 500 partners.

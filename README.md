@@ -2,7 +2,7 @@
 
 3rd National Security Hackathon — Problem Statement 2 (Edge Deployments and Drone Operation).
 
-By **Roland Pinter** and **Domonkos Haffner** ([DiffuseDrive](https://diffusedrive.com)).
+By **[Roland Pinter](https://www.linkedin.com/in/rolandpinter/)** and **[Domonkos Haffner](https://www.linkedin.com/in/domonkos-haffner-798063203/)** ([DiffuseDrive](https://diffusedrive.com)).
 
 > 📍 **Read [`FINAL_DEMO.md`](FINAL_DEMO.md) first** — that's the demo, the problem, who owns it, and the solution. This README is just install + run.
 
