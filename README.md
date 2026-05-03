@@ -1,31 +1,12 @@
-
 # Edge Adaptation for Drone Perception
 
 3rd National Security Hackathon — Problem Statement 2 (Edge Deployments and Drone Operation).
 
 By **Roland Pinter** and **Domonkos Haffner** ([DiffuseDrive](https://diffusedrive.com)).
 
-## The problem
+> 📍 **Read [`FINAL_DEMO.md`](FINAL_DEMO.md) first** — that's the demo, the problem, who owns it, and the solution. This README is just install + run.
 
-Drone detectors trained on yesterday's targets fail on today's. The moment an adversary bolts on a **cope cage**, throws on **camo netting**, or turns a vehicle into a **hedgehog**, the same asset becomes invisible to a model that was crushing it last week. Re-collecting and re-labeling real imagery takes weeks. The drone is launching tomorrow.
-
-## The solution
-
-A minimal loop that adapts a YOLO11s detector to a new target appearance in hours, not weeks:
-
-1. **Train baseline** on regular military vehicles.
-2. **Show it fails** on modified vehicles (caged, camo'd, hedgehog).
-3. **Generate** synthetic images of the modified variants.
-4. **Re-finetune** on the augmented set.
-5. **Show recovery** on the same failure cases.
-
-For the synthetic step we use the **OpenAI image-generation API** directly — quick, dirty, and good enough for a demo. It is *not* a real-world answer: not scalable, not air-gapped, no sensor-accurate physics, no fine-grained scenario control. In production this is exactly what DiffuseDrive's Atlas engine solves. For 24 hours at Shack15, OpenAI gets us across the finish line.
-
-## Files
-
-- tbd... once the repo is done
-
-## Run it
+## Setup
 
 **1) Clone the repo**
 
@@ -34,14 +15,7 @@ gh repo clone roland-diffusedrive/natsechackathon
 cd natsechackathon
 ```
 
-**2) Set your API key**
-
-```bash
-cp .env.example .env
-# open .env and paste your OPENAI_API_KEY
-```
-
-**3) Create conda environment**
+**2) Create conda environment**
 
 ```bash
 conda create --name natsechackathon python=3.10 -y
@@ -51,9 +25,11 @@ pip-compile requirements/requirements.in
 pip install -r requirements/requirements.txt
 ```
 
+## Run the YOLO loop
 
+The synthetic dataset is already committed under `data/tanks/`, so you can go straight to fine-tuning and eval — no API key required.
 
-**4) YOLO finetuning**
+**Finetune**
 
 ```bash
 # name=      run label, saved to runs/detect/<name>/
@@ -64,7 +40,7 @@ pip install -r requirements/requirements.txt
 python scripts/03_finetune.py name=baseline model=yolo11s.pt epochs=50 batch=32 device=0
 ```
 
-**5) YOLO eval** (quantitative mAP + annotated images)
+**Eval** (quantitative mAP + annotated images)
 
 ```bash
 # model=      checkpoint to evaluate
@@ -72,6 +48,25 @@ python scripts/03_finetune.py name=baseline model=yolo11s.pt epochs=50 batch=32 
 # output_dir= where to save metrics.json + annotated images
 python scripts/03_eval.py model=runs/detect/baseline/weights/best.pt split=test output_dir=out/eval/baseline_test device=0
 ```
+
+## Regenerate the synthetic data (optional)
+
+Only needed if you want to rebuild the hedgehog set from scratch. Requires an OpenAI API key.
+
+```bash
+cp .env.example .env
+# open .env and paste your OPENAI_API_KEY
+```
+
+```bash
+# 1) strip watermarks/flags/emblems from raw source aerials
+python scripts/01_remove_artifacts.py
+
+# 2) inpaint hedgehog tanks onto the cleaned aerials (produces the 353-image set)
+python scripts/02_inpaint_hedgehog.py
+```
+
+Paths and model parameters are in `configs/01_remove_artifacts.yaml` and `configs/02_inpaint_hedgehog.yaml`.
 
 ## Dataset
 
@@ -85,7 +80,3 @@ Ultralytics YOLO11s — `YOLO("yolo11s.pt")` auto-downloads the official weights
 ## License
 
 MIT.
-
-
-
-
