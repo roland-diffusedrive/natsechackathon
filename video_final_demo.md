@@ -54,3 +54,7 @@ Edge Adaptation for Drone Perception
 Roland Pinter · Domonkos Haffner · DiffuseDrive
 github.com/roland-diffusedrive/natsechackathon
 ```
+
+---
+
+> For the fuller story — problem framing, repo walkthrough, and team — see [`FINAL_DEMO.md`](FINAL_DEMO.md).

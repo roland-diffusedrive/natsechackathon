@@ -35,6 +35,10 @@ A minimal closed loop that adapts a YOLO11s tank detector to a new target appear
 | ![baseline](docs/demo/01_baseline_hero.jpg) | ![adapted](docs/demo/02_adapted_hero.jpg) |
 | catches the regular vehicle, blind to the hedgehog | catches both — only the box changes |
 
+And it's not a cherry-picked frame — across the full eval set, recall jumps **+271%** and mAP@50 **+453%**:
+
+![baseline vs. adapted metrics](docs/demo/08_metrics_comparison.png)
+
 Single class throughout: `tank`. We don't split sub-types — the operator only cares whether anything tank-shaped gets a box.
 
 Drones and tanks are the demo, not the limit — the same loop applies to any unmanned system (air, land, sea, space) and any target whose appearance shifts on the battlefield.
