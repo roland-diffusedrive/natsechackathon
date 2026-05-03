@@ -37,6 +37,8 @@ A minimal closed loop that adapts a YOLO11s tank detector to a new target appear
 
 Single class throughout: `tank`. We don't split sub-types — the operator only cares whether anything tank-shaped gets a box.
 
+Drones and tanks are the demo, not the limit — the same loop applies to any unmanned system (air, land, sea, space) and any target whose appearance shifts on the battlefield.
+
 ## What this is, and what it isn't
 
 This 24-hour build is a **concept demo**: it shows that operator-in-the-loop adaptation is technically tractable with off-the-shelf generative models. Generation runs through the OpenAI image API because it was available at Shack15 — fast, dirty, good enough for a hackathon.
