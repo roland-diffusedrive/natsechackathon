@@ -54,16 +54,17 @@ A real edge-deployable, defense-grade version needs an air-gapped, sensor-accura
 ```
 prompts/01_remove_artifacts_prompt.txt    # strip watermarks/flags from source aerials
 prompts/02_inpaint_hedgehog_prompt.txt    # composite hedgehog tank into clean aerials
+configs/                                  # Hydra YAML configs for every pipeline stage
 scripts/01_remove_artifacts.py            # clean source imagery via OpenAI image edits
 scripts/02_inpaint_hedgehog.py            # generate the 353 synthetic hedgehog images
-scripts/03_finetune.py                    # YOLO11s fine-tuning (Hydra config)
+scripts/03_finetune.py                    # YOLO11s fine-tuning
 scripts/03_eval.py                        # mAP + annotated qualitative eval
+scripts/03_infer.py                       # run inference on arbitrary images
+src/image_edit.py                         # shared async OpenAI image-edit helpers
 src/yolo/                                 # train / evaluate / predict library code
-data/tanks/                               # 1208 train / 315 val / 10 test (Roboflow CC BY 4.0)
-data/hedgehog_caged_tanks/                # reference images of the new variant
 ```
 
-Dataset: [Roboflow Universe — military-view6](https://universe.roboflow.com/datasets-tqcu8/military-view6) (CC BY 4.0).
+Dataset: [Roboflow Universe — military-view6](https://universe.roboflow.com/datasets-tqcu8/military-view6) (CC BY 4.0) — 1208 train / 325 val / 10 test.
 Model: Ultralytics YOLO11s.
 Install + run: see [README.md](README.md).
 
